@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Stronger Eric",
+  "version": "0.0.1",
+  "description": "Stronger font for https://ericlippert.com",
+  "minimum_chrome_version": "26",
+  "icons": {
+    "16": "assets/icon_16.png",
+    "48": "assets/icon_48.png",
+    "128": "assets/icon_128.png"
+  },
+  "page_action": {
+    "default_title": "Toggle light/dark header"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "src/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://ericlippert.com/*",
+        "*://*.ericlippert.com/*"
+      ],
+      "js": [
+        "src/content-script.js"
+      ],
+      "css": [
+        "src/entry.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
